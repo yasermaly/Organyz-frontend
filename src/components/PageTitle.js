@@ -1,5 +1,5 @@
 import React from 'react'
-import style from '../styles/modules/title.scss'
+import style from '../styles/modules/title.module.scss'
 
 function PageTitle({children, ...rest}) {
   return (

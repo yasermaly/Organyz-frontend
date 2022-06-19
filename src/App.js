@@ -1,10 +1,17 @@
 import React from "react";
-import Header from "./components/Header";
+import PageTitle from "./components/PageTitle";
+import style from './styles/modules/app.scss';
+import AppHeader from "./components/AppHeader";
+
+
 
 function App() {
   return (
-    <div className="App">
-   <Header>Organyze</Header>
+    <div className="container">
+      <PageTitle>Organyze</PageTitle>
+      <div className={style.app__wrapper}>
+        <AppHeader></AppHeader>
+      </div>
     </div>
   );
 }

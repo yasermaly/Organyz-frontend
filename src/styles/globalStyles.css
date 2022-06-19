@@ -7,6 +7,19 @@
 	padding: 0;
 }
 
+:root {
+    --primaryPurple: #646ff0;
+    --black-1: #646681;
+    --black-2: #585858;
+    --bg-1: #f8f8ff;
+    --bg-2: #ecedf6;
+    --bg-3: #cccdde;
+    --gray-1: #eee;
+    --gray-2: #dedfe1;
+    --black: black;
+    --white: white;
+}
+
 html {
     font-size: 10px;
 }
@@ -18,13 +31,15 @@ body {
     background-image: linear-gradient(purple,pink);
 }
 
-.App {
+.container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.header {
+h1 {
+    display: inline-block;
+    width: 100%;
     font-family: 'Permanent Marker', cursive;
     font-size: 6rem;
     text-align: center;
@@ -33,4 +48,8 @@ body {
     margin-bottom: 1.5rem;
     color: rgb(230, 228, 228);
 }
+
+
+
+
 

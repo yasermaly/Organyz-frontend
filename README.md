@@ -1,4 +1,4 @@
-# Organyz App
+# Organyze App
 
 Organyz is a full MERN stack To-Do List web application with CRUD functinality where the user is able to create, read, update, and delete tasks to keep themselves organized. 
 

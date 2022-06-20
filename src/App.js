@@ -1,19 +1,21 @@
 import React from "react";
-import PageTitle from "./components/PageTitle";
-import style from './styles/modules/app.module.scss';
-import AppHeader from "./components/AppHeader";
-import AppContent from "./components/AppContent";
+import TaskList from "./pages/TaskList";
+import LandingPage from "./pages/LandingPage";
+import { Route, Switch } from "react-router-dom";
 
 
 
-function App() {
+function App(props) {
   return (
     <div className="container">
-      <PageTitle>Organyze</PageTitle>
-      <div className={style.app__wrapper}>
-        <AppHeader />
-        <AppContent></AppContent>
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+        <Route path="/TaskList">
+          <TaskList />
+        </Route>
+      </Switch>
     </div>
   );
 }

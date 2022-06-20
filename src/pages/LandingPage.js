@@ -1,8 +1,11 @@
 import React from 'react'
+import LandingPageHeader from '../components/LandingPageHeader';
 
 function LandingPage() {
-  return <div>LandingPage</div>
-  
-}
+  return ( 
+    <div className="landingPage">
+      <LandingPageHeader/>
+      </div>
+   )}
 
 export default LandingPage;

@@ -57,7 +57,7 @@ function SignUpModal({ modalOpen, setModalOpen }) {
             </label>
             <div className={styles.buttonContainer}>
               <Button type="submit" variant="primary">
-                Add Task
+                Sign Up
               </Button>
               <Button
                 variant="secondary"

@@ -1,20 +1,43 @@
-import React from "react";
+import React , {useEffect, useState} from "react";
 import TaskList from "./pages/TaskList";
 import LandingPage from "./pages/LandingPage";
 import { Route, Switch } from "react-router-dom";
 
 
 
-function App(props) {
+function App() {
+const [List, setList] = useState(null);
+
+const URL = "https://organyze-app.herokuapp.com";
+
+const getList = async () => {
+  const response = await fetch(URL);
+  const data = await response.json();
+  setList(data);
+};
+
+const createList = async (newList) => {
+  await fetch(URL, {
+    method: "POST",
+    headers: {"Content-Type": "Application/json",},
+    body: (newList),
+  });
+  getList();
+}
+
+ useEffect(() => {getList()}, []);
+
   return (
     <div className="container">
       <Switch>
-        <Route exact path="/">
-          <LandingPage />
+        <Route exact path="/Landing">
+          <LandingPage getList={getList} createList={createList} List={List} />
         </Route>
-        <Route path="/TaskList">
-          <TaskList />
-        </Route>
+        <Route path="/TaskList/:id"
+        render={(rp) => (
+          <TaskList {...rp} />
+        )}
+        />
       </Switch>
     </div>
   );

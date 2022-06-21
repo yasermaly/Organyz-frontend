@@ -1,15 +1,24 @@
+//Import Statements
+//==============
 import React, { useState } from 'react';
 import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md';
 import Button from './Button';
+import { Link } from "react-router-dom";
+
+//SignInModal Function Created
+//======================
 
 function SignInModal({ modalOpen2, setModalOpen2}) {
-const [email, setEmail] = useState(''); // sets state for the email
-const [password, setPassword] = useState("");  // sets state for the password
+const [account, setAccount] = useState({
+  email: "",
+  password: "",
+})
 
 const handleSubmit = (e) => {
     e.preventDefault(); //prevents page reload on submit
-    console.log({email, password});
+    <Link />
+    console.log({account});
   }
   return (
          modalOpen2 && (
@@ -28,8 +37,8 @@ const handleSubmit = (e) => {
                 type="email"
                 name="email" 
                 id="email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)}
+                value={account.email} 
+                onChange={(e) => setAccount.email(e.target.value)}
                 />
               </label>
               <label htmlFor="password">
@@ -38,13 +47,13 @@ const handleSubmit = (e) => {
                     type="password"
                     name="password"
                     id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={account.password}
+                    onChange={(e) => setAccount.password(e.target.value)}
                     />
                 </label>
               <div className={styles.buttonContainer}>
                 <Button type="submit" variant="primary">
-                  Add Task
+                 Sign In
                 </Button>
                 <Button variant="secondary" 
                 onClick = { () => setModalOpen2(false) }

@@ -2,17 +2,52 @@ import React, { useState } from 'react';
 import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md';
 import Button from './Button';
+import { Link } from "react-router-dom";
 
-function SignUpModal({ modalOpen, setModalOpen}) {
-const [name, setName] = useState(""); // sets state for the name
-  const [email, setEmail] = useState(""); // sets state for the email
-  const [password, setPassword] = useState("");
+function SignUpModal({ List, createList, getList, modalOpen, setModalOpen}) {
 
+//Create Form useState
+//================
+let [form, setForm] = useState({
+name: "", 
+email: "",
+password: "",
+})
+
+//Create handleChange
+//================
+// const handleChange = (e) => {
+//   setForm({...form, [e.target.form]: e.target.value});
+//   console.log(e.target.form);
+// }
+
+//Create handleSubmit function
+//======================
   const handleSubmit = (e) => {
-    e.preventDefault(); //prevents page reload on submit
-    console.log({name, email, password});
-  }
+    //prevents reload on submit
+    e.preventDefault();
+    createList(form);
+    setForm({form})
+    console.log({form});
+       return (
+     <Link form={form} to={`/TaskList`}/>
+  );}
 
+//Create Function to return new account
+// if info was correctly loaded
+//===========================
+// const loaded = (List, createList, getList) => {
+//   return List.map((...List) => (
+//     <div key={List._id} className="theNewList">
+     
+//     </div>
+//   ))
+// }
+
+//  const loading = () => {
+//     return <h1>Loading...</h1>;
+//   }
+  
   return (
       modalOpen && (
         <div className={styles.wrapper}>
@@ -22,40 +57,41 @@ const [name, setName] = useState(""); // sets state for the name
             onKeyDown = { () => setModalOpen(false)}>
               <MdOutlineClose />
             </div>
-            <form className={styles.form} onSubmit={ (e) => handleSubmit(e)}>
+            <section>
+            <form className={styles.form} onSubmit={ (e) => handleSubmit(e.target.value)}>
               <h1 className={styles.formSignUp}>Sign Up</h1>
               <label htmlFor="SignUp">
                 Name
                 <input 
+                value={form.name}
+                onChange = { (e) => setForm(e)}  
                 type="text" 
                 id="name" 
-                value={name}
-                onChange = { (e) => setName(e.target.value) }  
                 />
               </label>
               <label htmlFor="email">
                 Email
                 <input
+                value={form.email} 
+                onChange={(e) => setForm(e.target.value)}
                 type="email"
                 name="email" 
                 id="email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)}
                 />
                 <label htmlFor="password">
                     Password
                     <input 
+                    value={form.password}
+                    onChange={(e) => setForm(e.target.value)}
                     type="password"
                     name="password"
                     id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
               </label>
               <div className={styles.buttonContainer}>
                 <Button type="submit" variant="primary">
-                  Add Task
+                  Sign-Up
                 </Button>
                 <Button variant="secondary" 
                 onClick = { () => setModalOpen(false) }
@@ -64,6 +100,7 @@ const [name, setName] = useState(""); // sets state for the name
                 </Button>
               </div>
             </form>
+            </section>
           </div>
         </div>
   ))}

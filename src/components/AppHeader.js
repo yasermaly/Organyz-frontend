@@ -6,7 +6,7 @@ import TodoModal from './TodoModal';
 
 
 function AppHeader() {
-  const [modalOpen, setModalOpen] = useState(true); // creates State
+  const [modalOpen, setModalOpen] = useState(false); // creates State
   return (
     <div className={style.appHeader}>
         <Button variant='primary' onClick = { () => setModalOpen(true) }>Add Task</Button>

@@ -9,15 +9,19 @@ const buttonTypes = {
 
 function Button({ children, type, variant, ...rest }) {
   return (
-    <button className={getClasses([
-        style.button, 
-        style[`button--${buttonTypes[variant]}`],
-        ])} 
-        type={type === 'submit' ? 'submit' : 'button'}
-        {...rest}>
+    <div className={style.buttonContainer}>
+      <button
+        className={getClasses([
+          style.button,
+          style[`button--${buttonTypes[variant]}`],
+        ])}
+        type={type === "submit" ? "submit" : "button"}
+        {...rest}
+      >
         {children}
-    </button>
-  )
+      </button>
+    </div>
+  );
 }
 
 function SelectButton ({ children, ...rest}) {

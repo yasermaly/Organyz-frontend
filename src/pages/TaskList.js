@@ -8,7 +8,7 @@ import style from '../styles/modules/app.module.scss';
 function TaskList(props) {
   return (
     <div>
-      <PageTitle>Organyze</PageTitle>
+      <PageTitle />
       <div className={style.app__wrapper}>
         <AppHeader />
         <AppContent></AppContent>

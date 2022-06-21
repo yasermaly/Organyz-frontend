@@ -28,14 +28,17 @@ body {
     font-family: 'JetBrains Mono', monospace;
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(purple,pink);
+    background-image: linear-gradient(rgb(83, 2, 83),pink);
 }
+
 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
+
+
 
 
 

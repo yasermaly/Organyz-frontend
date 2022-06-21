@@ -1,10 +1,10 @@
 import React from 'react'
 import style from '../styles/modules/title.module.scss'
 
-function PageTitle({children, ...rest}) {
+function PageTitle() {
   return (
-    <h1 className={style.title} {...rest}>
-        {children}
+    <h1 className={style.title}>
+        Organyze
     </h1>
   )
 }

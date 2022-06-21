@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import styles from "../styles/modules/modal.module.scss";
-import { MdOutlineClose } from "react-icons/md";
-import Button from "./Button";
+import React, { useState } from 'react';
+import styles from '../styles/modules/modal.module.scss';
+import { MdOutlineClose } from 'react-icons/md';
+import Button from './Button';
 
-function SignUpModal({ modalOpen, setModalOpen }) {
-  const [name, setName] = useState(""); // sets state for the name
-  const [email, setEmail] = useState(""); // sets state for the email
-  const [password, setPassword] = useState("");
+function SignUpModal({ modalOpen, setModalOpen}) {
+const [name, setName] = useState(""); // sets state for the name
 
   const handleSubmit = (e) => {
     e.preventDefault(); //prevents page reload on submit

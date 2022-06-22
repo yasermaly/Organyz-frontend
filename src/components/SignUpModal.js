@@ -3,16 +3,17 @@ import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md';
 import Button from './Button';
 import { Link } from "react-router-dom";
+import { stringify } from 'uuid';
 
 function SignUpModal({ List, createList, getList, modalOpen, setModalOpen}) {
 
 //Create Form useState
 //================
-const [name, setName]= useState("");
-const [email, setEmail]= useState("");
-const [password, setPassword]= useState("");
+// const [name, setName]= useState("");
+// const [email, setEmail]= useState("");
+// const [password, setPassword]= useState("");
 
-let [form, setForm] = useState({
+const [form, setForm] = useState({
 name: "", 
 email: "",
 password: "",
@@ -22,9 +23,9 @@ password: "",
 //Create handleChange
 //================
 const handleChange = (e) => {
-  setForm({
+  setForm( form => ({
     ...form, [e.target.name]: e.target.value
-  });
+  }));
   console.log(form);
 }
 
@@ -34,11 +35,12 @@ const handleChange = (e) => {
     //prevents reload on submit
     e.preventDefault();
     createList(form);
-    // setForm({form})
+    setForm({name: "", email: "", password: "",})
     console.log({form});
        return (
-     <Link form={form} to={`/TaskList/:id`}/>
-  );}
+     <Link form={form} to={`/TaskList`}/>
+  )
+  }
 
 //Create Function to return new account
 // if info was correctly loaded
@@ -54,7 +56,9 @@ const handleChange = (e) => {
 //  const loading = () => {
 //     return <h1>Loading...</h1>;
 //   }
-  
+
+const {name, email, password} = form
+
   return (
       modalOpen && (
         <div className={styles.wrapper}>
@@ -65,12 +69,13 @@ const handleChange = (e) => {
               <MdOutlineClose />
             </div>
             <section>
-            <form className={styles.form} onSubmit={ (e) => handleSubmit(e.target.value)}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               <h1 className={styles.formSignUp}>Sign Up</h1>
               <label htmlFor="SignUp">
                 Name
                 <input 
                 value={name}
+                name="name"
                 onChange = {handleChange}  
                 type="text" 
                 id="name" 
@@ -97,9 +102,10 @@ const handleChange = (e) => {
                     />
                 </label>
               <div className={styles.buttonContainer}>
-                <Button type="submit" variant="primary">
+                <Link  to={`/TaskList`}><Button type="submit" variant="primary">
                   Sign-Up
                 </Button>
+                </Link>
                 <Button variant="secondary" 
                 onClick = { () => setModalOpen(false) }
                 onKeyDown = { () => setModalOpen(false) }>

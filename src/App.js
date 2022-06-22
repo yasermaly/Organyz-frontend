@@ -17,10 +17,10 @@ const getList = async () => {
 };
 
 const createList = async (newList) => {
-  await fetch(URL, {
+  await fetch(URL + "/TaskList", {
     method: "POST",
     headers: {"Content-Type": "Application/json",},
-    body: (newList),
+    body: JSON.stringify(newList),
   });
   getList();
 }

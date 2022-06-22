@@ -33,7 +33,7 @@ const createList = async (newList) => {
         <Route exact path="/Landing">
           <LandingPage getList={getList} createList={createList} List={List} />
         </Route>
-        <Route path="/TaskList/:id"
+        <Route path="/TaskList"
         render={(rp) => (
           <TaskList {...rp} />
         )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md';
 import Button from './Button';
@@ -8,18 +8,25 @@ function SignUpModal({ List, createList, getList, modalOpen, setModalOpen}) {
 
 //Create Form useState
 //================
+const [name, setName]= useState("");
+const [email, setEmail]= useState("");
+const [password, setPassword]= useState("");
+
 let [form, setForm] = useState({
 name: "", 
 email: "",
 password: "",
 })
 
+
 //Create handleChange
 //================
-// const handleChange = (e) => {
-//   setForm({...form, [e.target.form]: e.target.value});
-//   console.log(e.target.form);
-// }
+const handleChange = (e) => {
+  setForm({
+    ...form, [e.target.name]: e.target.value
+  });
+  console.log(form);
+}
 
 //Create handleSubmit function
 //======================
@@ -27,10 +34,10 @@ password: "",
     //prevents reload on submit
     e.preventDefault();
     createList(form);
-    setForm({form})
+    // setForm({form})
     console.log({form});
        return (
-     <Link form={form} to={`/TaskList`}/>
+     <Link form={form} to={`/TaskList/:id`}/>
   );}
 
 //Create Function to return new account
@@ -63,8 +70,8 @@ password: "",
               <label htmlFor="SignUp">
                 Name
                 <input 
-                value={form.name}
-                onChange = { (e) => setForm(e)}  
+                value={name}
+                onChange = {handleChange}  
                 type="text" 
                 id="name" 
                 />
@@ -72,23 +79,23 @@ password: "",
               <label htmlFor="email">
                 Email
                 <input
-                value={form.email} 
-                onChange={(e) => setForm(e.target.value)}
+                value={email} 
+                onChange = {handleChange}  
                 type="email"
                 name="email" 
                 id="email" 
                 />
+                </label>
                 <label htmlFor="password">
                     Password
                     <input 
-                    value={form.password}
-                    onChange={(e) => setForm(e.target.value)}
+                    value={password}
+                    onChange = {handleChange}  
                     type="password"
                     name="password"
                     id="password"
                     />
                 </label>
-              </label>
               <div className={styles.buttonContainer}>
                 <Button type="submit" variant="primary">
                   Sign-Up

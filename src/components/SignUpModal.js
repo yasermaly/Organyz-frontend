@@ -55,7 +55,7 @@ const [name, setName] = useState(""); // sets state for the name
             </label>
             <div className={styles.buttonContainer}>
               <Button type="submit" variant="primary">
-                Add Task
+                Sign Up
               </Button>
               <Button
                 variant="secondary"

@@ -9,7 +9,7 @@ function LandingPageHeader() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen2, setModalOpen2] = useState(false);
   return (
-    <div className={style.LandingHeader}>
+    <div className={style.landingHeader}>
       <PageTitle />
       <div className={style.buttonContainer}>
         <Button variant="primary" onClick={() => setModalOpen(true)}>

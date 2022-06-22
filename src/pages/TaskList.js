@@ -10,7 +10,7 @@ function TaskList(props) {
     <div>
       <PageTitle />
       <div className={style.app__wrapper}>
-        <AppHeader />
+        <AppHeader getList={props.getList} createItem={props.createItem} List={props.List}/>
         <AppContent></AppContent>
       </div>
     </div>

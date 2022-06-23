@@ -95,7 +95,7 @@ function SignUpModal({ List, createList, getList, modalOpen, setModalOpen }) {
                 />
               </label>
               <div className={styles.buttonContainer}>
-                <Link to={`/TaskList`}>
+                <Link to={`/TaskList/${List._id}`}>
                   <Button type="submit" variant="primary">
                     Sign-Up
                   </Button>

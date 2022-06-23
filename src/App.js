@@ -17,7 +17,7 @@ function App() {
 
   // creates function to create user
   const createList = async (newList) => {
-    await fetch(URL + "/TaskList", {
+    await fetch(URL + "/TaskList/:_id", {
       method: "POST",
       headers: { "Content-Type": "Application/json" },
       body: JSON.stringify(newList),
@@ -44,9 +44,7 @@ function App() {
         <Route exact path="/Landing">
           <LandingPage getList={getList} createList={createList} List={List} />
         </Route>
-        <Route path="/TaskList">
-          <TaskList getList={getList} createItem={createItem} List={List} />
-        </Route>
+
         <Route path="/TaskList/:_id">
           <TaskList getList={getList} createItem={createItem} List={List} />
         </Route>

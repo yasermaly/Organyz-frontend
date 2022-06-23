@@ -11,7 +11,7 @@ function TaskList(props) {
       <PageTitle />
       <div className={style.app__wrapper}>
         <AppHeader getList={props.getList} createItem={props.createItem} List={props.List}/>
-        <AppContent></AppContent>
+        <AppContent List={props.List} getList={props.getList}/>
       </div>
     </div>
   );

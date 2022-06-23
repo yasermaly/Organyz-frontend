@@ -1,0 +1,13 @@
+@import '../mixins';
+
+.title {
+    display: inline-block;
+    width: 100%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 7rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: rgb(230, 228, 228);
+}

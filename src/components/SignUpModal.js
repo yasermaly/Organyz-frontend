@@ -37,25 +37,7 @@ const handleChange = (e) => {
     createList(form);
     setForm({name: "", email: "", password: "",})
     console.log({form});
-       return (
-     <Link form={form} to={`/TaskList`}/>
-  )
   }
-
-//Create Function to return new account
-// if info was correctly loaded
-//===========================
-// const loaded = (List, createList, getList) => {
-//   return List.map((...List) => (
-//     <div key={List._id} className="theNewList">
-     
-//     </div>
-//   ))
-// }
-
-//  const loading = () => {
-//     return <h1>Loading...</h1>;
-//   }
 
 const {name, email, password} = form
 

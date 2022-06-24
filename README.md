@@ -12,6 +12,10 @@ MongoDB | Express.js | React.js | Node.js | Mongoose.js | EJS | JSX | CSS | SASS
 ![Project3 Wireframe](https://user-images.githubusercontent.com/82068480/175452936-f979258b-9b9c-4c87-a619-ad0f292711de.png)
 
 
+## Trello Board
+*https://trello.com/b/ijODWEUp/organyze
+
+
 The application is deployed on Netlify at this link:
 * https://chic-melba-b48ff0.netlify.app/
 

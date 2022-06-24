@@ -16,6 +16,7 @@ MongoDB | Express.js | React.js | Node.js | Mongoose.js | EJS | JSX | CSS | SASS
 *https://trello.com/b/ijODWEUp/organyze
 
 
+## Netlify
 The application is deployed on Netlify at this link:
 * https://chic-melba-b48ff0.netlify.app/
 

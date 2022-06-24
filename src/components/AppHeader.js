@@ -5,7 +5,7 @@ import TodoModal from './TodoModal';
 
 
 
-function AppHeader(props) {
+function AppHeader({getList, List, id, createItem}) {
   const [modalOpen, setModalOpen] = useState(false); // creates State
   return (
     <div className={style.appHeader}>
@@ -18,11 +18,12 @@ function AppHeader(props) {
         <option value="complete">Complete</option>
       </SelectButton>
       <TodoModal
-        getList={props.getList}
-        createItem={props.createItem}
-        List={props.List}
+        getList={getList}
+        createItem={createItem}
+        List={List}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
+        id={id}
       />
     </div>
   );

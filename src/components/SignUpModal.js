@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 
 
 
-function SignUpModal({ List, createList, getList, modalOpen, setModalOpen }) {
+function SignUpModal({ List, id, createList, getList, modalOpen, setModalOpen }) {
 
 let history = useHistory();
 
@@ -36,23 +36,8 @@ let history = useHistory();
     createList(form);
     setForm({ name: "", email: "", password: "" });
     console.log(List);
-    history.push(`/TaskList/${List[List.length]._id}`)
+    history.push(`/Welcome`)
   };
-
-  //Create Function to return new account
-  // if info was correctly loaded
-  //===========================
-  // const loaded = (List, createList, getList) => {
-  //   return List.map((...List) => (
-  //     <div key={List._id} className="theNewList">
-
-  //     </div>
-  //   ))
-  // }
-
-  //  const loading = () => {
-  //     return <h1>Loading...</h1>;
-  //   }
 
   const { name, email, password } = form;
 
@@ -102,9 +87,7 @@ let history = useHistory();
               </label>
               <div className={styles.buttonContainer}>
                   <Button type="submit" variant="primary">
-                      {/* <Link to={`/TaskList/${List[List.length-1]._id}`}> */}
                     Sign-Up
-                    {/* </Link> */}
                 </Button>
                 <Button
                   variant="secondary"

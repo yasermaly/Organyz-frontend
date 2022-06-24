@@ -1,41 +1,22 @@
-import { useState, React } from 'react'
-import { Link } from 'react-router-dom'
+import {React } from 'react';
+import style from '../styles/modules/todoItem.module.scss';
 
+function AppContent({getList, id, List}) {
+const Loaded = () => {
+  console.log(List);
+  console.log(id)
+const newUser = List.find(obj => {
+  return obj._id === id;
+})
+console.log(newUser);
 
-
-function AppContent({getList, List}) {
-
-  const Loaded = () => {
-
-//   const [taskItem, useTaskItem] = useState({
-//       title: "",
-//       status: "",
-//       importance: "",
-//       timeToComplete: "",
-//       due: "",
-//   });
-
-// const getTaskList = () => {
-//   for(let i = 0 ; i < List[6].item.length; i++){
-//      useTaskItem(List[6].item[i])
-//   }
-// }
-
-const taskNumber = List[11].task;
-
-// const getTaskItem = () => {
-//   for (let i = 0 ; i < List[6].item.length; i++){
-//     taskItem.push(List[6].item[i])
-//   }
-// }
-console.log(taskNumber[1].title);
-
+let newTasks = newUser.task;
     return (
       <div>
         <ul>
-      {taskNumber.map((item, index) => {
+      {newTasks.map((item, index) => {
         return (
-      <li key={item._id} className="todo">
+      <li key={item._id} className={style.item}>
           <h2>{item.title}</h2>
       </li>);
        })}

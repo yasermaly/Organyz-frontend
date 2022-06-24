@@ -9,12 +9,16 @@ MongoDB | Express.js | React.js | Node.js | Mongoose.js | EJS | JSX | CSS | SASS
 
 
 ## Wireframe
+![Project3 Wireframe](https://user-images.githubusercontent.com/82068480/175452936-f979258b-9b9c-4c87-a619-ad0f292711de.png)
+
 
 The application is deployed on Netlify at this link:
-
-
-## Getting Started
-
+* https://chic-melba-b48ff0.netlify.app/
 
 
 ## Future Enhancements
+* Adding Edit Button to allow users to change status from incomplete to complete and vice versa
+* Adding Delete Button for when you have finished a task and no longer want it on your list
+* Getting the Sign In button to work
+* Having OAuthentication (adding Bcrypt)
+* Adding more information such as Priority and date due

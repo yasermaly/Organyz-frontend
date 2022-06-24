@@ -1,0 +1,21 @@
+@import '../mixins';
+
+.welcomeDiv {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.welcomeDiv a {
+    text-decoration: none;
+    color: var(--primaryPurple);
+    background-color: var(--gray-2);
+    padding: 1% 2% ;
+    border-radius: 15px;
+    margin-top: 2%;
+    width: 8%;
+    margin-left: 46%;
+}

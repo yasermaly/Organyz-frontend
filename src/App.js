@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TaskList from "./pages/TaskList";
 import LandingPage from "./pages/LandingPage";
 import Welcome from "./pages/Welcome";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 function App() {
   const [List, setList] = useState(null);
@@ -46,7 +46,10 @@ function App() {
   return (
     <div className="container">
       <Switch>
-        <Route exact path="/Landing">
+        <Route exact path="/">
+          <Redirect to="/Landing"/>
+        </Route>
+        <Route path="/Landing">
           <LandingPage getList={getList} createList={createList} List={List} />
         </Route>
         <Route path="/Welcome">

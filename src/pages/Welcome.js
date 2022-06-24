@@ -5,7 +5,7 @@ import style from "../styles/modules/welcome.module.scss"
 
 function Welcome({List, getList}) {
 
-const newUserId = List[List.length-1]._id;
+let newUserId = List[List.length-1]._id;
  
   return (
     <div className={style.welcomeDiv}>

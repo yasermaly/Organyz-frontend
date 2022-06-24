@@ -2,31 +2,33 @@ import React, { useState } from 'react';
 import styles from '../styles/modules/modal.module.scss';
 import { MdOutlineClose } from 'react-icons/md';
 import Button from './Button';
-import { Link } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 
 
-function TodoModal({List, createItem, getList, modalOpen, setModalOpen}) {
-  // const [title, setTitle] = useState(''); // sets state for the title
-  // const [status, setStatus] = useState('incomplete'); // sets state for the status
+function TodoModal({List, id, createItem, getList, modalOpen, setModalOpen}) {
+ let history = useHistory();
   const [item, setItem] = useState({ 
+    task : [{
     title: "",
     importance: "",
     timeToComplete: "",
     due: "",
     status: "incomplete",
+    }]
   }); // sets state for the item 
 
   const handleChange = (e) => {
     setItem(item => ({
-      ...item, [e.target.name] : e.target.value
+     task : [{title: e.target.value , status: "incomplete"}]
     }))
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault(); //prevents page reload on submit
-    createItem(item)
+    // e.preventDefault(); //prevents page reload on submit
+    createItem(item, id)
     setItem({title:"", status:"", importance:"", timeToComplete:"", due:""})
     console.log(item);
+    history.push(`/TaskList/${id}`)
   }
 
   return (

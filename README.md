@@ -11,6 +11,7 @@ MongoDB | Express.js | React.js | Node.js | Mongoose.js | EJS | JSX | CSS | SASS
 ## Wireframe
 
 The application is deployed on Netlify at this link:
+https://organyze.netlify.app
 
 
 ## Getting Started

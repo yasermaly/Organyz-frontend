@@ -7,9 +7,9 @@ import { Redirect, Route, Switch } from "react-router-dom";
 function App() {
   const [List, setList] = useState(null);
 
-  // const URL = "http://localhost:4000";
+  const URL = "http://localhost:4000";
 
-  const URL = "https://organyze-app.herokuapp.com"
+  // const URL = "https://organyze-app.herokuapp.com"
 
 
   // creates function to call AJAX

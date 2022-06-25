@@ -1,0 +1,43 @@
+@import '../mixins';
+
+table {
+    margin-top: 7%;
+    width:100%;
+    padding: 0;
+    border-spacing: 0px!important;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.headerRow {
+    margin: 0%;
+    background-color: var(--primaryPurple);
+    color: white;
+    height: 5vh;
+    font-size: large;
+    padding: 0;
+}
+
+th, td {
+    width: 33.333333%;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.item div{
+    display: block;
+    margin-left: 4%;
+}
+
+.item tr {
+    width: 100%;
+}
+
+.taskTitle {
+    font-size: 1.05em;
+    font-weight: 600;
+    font-family: "JetBrains Mono" ;
+}

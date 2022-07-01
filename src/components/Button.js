@@ -10,6 +10,7 @@ const buttonTypes = {
 
 function Button({ children, type, variant, ...rest }) {
   return (
+    <>
     <div className={style.buttonContainer}>
       <button
         className={getClasses([
@@ -22,6 +23,7 @@ function Button({ children, type, variant, ...rest }) {
         {children}
       </button>
     </div>
+    </>
   );
 }
 

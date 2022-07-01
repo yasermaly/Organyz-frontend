@@ -8,40 +8,92 @@ import { useHistory} from 'react-router-dom';
 function TodoModal({List, id, createItem, getList, modalOpen, setModalOpen}) {
  let history = useHistory();
 
-const [title, setTitle] = useState('');
-const [due, setDue] = useState('');
-const [status, setStatus] = useState('');
+const [theTitle, setTitle] = useState('');
+const [theImportance, setImportance] = useState('');
+const [theTimeToComplete, setTimeToComplete] = useState("");
+const [theDue, setDue] = useState('');
+const [theStatus, setStatus] = useState('incomplete');
 
 
   const [item, setItem] = useState({ 
     task : [{
-    title: "",
-    importance: "",
-    timeToComplete: "",
-    due: "",
-    status: "incomplete",
+    title: theTitle,
+    importance: theImportance,
+    timeToComplete: theTimeToComplete,
+    due: theDue,
+    status: theStatus,
     }]
   }); // sets state for the item 
 
   const handleChangeTitle = (e) => {
-    setTitle( e.target.value)
-    console.log(title)
+    setTitle( e.target.value);
+     setItem(item => ({
+      task : [{
+          title: e.target.value,
+          due: theDue,
+          importance: theImportance,
+          timeToComplete: theTimeToComplete,
+          status: theStatus,
+      }]
+    }))
+    console.log(theTitle)
   }
    const handleChangeDue = (e) => {
-    setDue(e.target.value)
-    console.log(due)
+    setDue(e.target.value);
+      setItem(item => ({
+      task : [{
+          title: theTitle,
+          due: e.target.value,
+          importance: theImportance,
+          timeToComplete: theTimeToComplete,
+          status: theStatus,
+      }]
+    }))
+    console.log(theDue)
+  }
+   const handleChangeImportance = (e) => {
+    setImportance(e.target.value)
+       setItem(item => ({
+      task : [{
+          title: theTitle,
+          due: theDue,
+          importance: e.target.value,
+          timeToComplete: theTimeToComplete,
+          status: theStatus,
+      }]
+    }))
+    console.log(theImportance)
+    console.log(item)
+  }
+   const handleChangeTime = (e) => {
+    setTimeToComplete(e.target.value);
+     setItem(item => ({
+      task : [{
+          title: theTitle,
+          due: theDue,
+          importance: theImportance,
+          timeToComplete: e.target.value,
+          status: theStatus,
+      }]
+    }))
+    console.log(theTimeToComplete)
   }
    const handleChangeStatus = (e) => {
     setStatus(e.target.value)
-    console.log(status)
+        setItem(item => ({
+      task : [{
+          title: theTitle,
+          due: theDue,
+          importance: theImportance,
+          timeToComplete: theTimeToComplete,
+          status: e.target.value,
+      }]
+    }))
+    console.log(theStatus)
   }
 
   const handleSubmit = (e) => {
-    setItem(item => ({
-      task : [{title: title , status: status, due: due}]
-    }))
     createItem(item, id)
-    setItem({title:"", status:"", importance:"", timeToComplete:"", due:""})
     console.log(item);
     history.push(`/TaskList/${id}`)
   }
@@ -65,7 +117,7 @@ const [status, setStatus] = useState('');
                 name="title"
                 type="text"
                 id="title"
-                value={title}
+                value={theTitle}
                 onChange={handleChangeTitle}
               />
             </label>
@@ -75,8 +127,31 @@ const [status, setStatus] = useState('');
               name="due"
               type="date"
               id="due"
-              value={due}
+              value={theDue}
               onChange={handleChangeDue}
+              />
+            </label>
+            <label htmlFor="timeToComplete">
+              How Long to Complete (mins)
+              <input
+                name="timeToComplete"
+                type="number"
+                min="1"
+                id="time"
+                value={theTimeToComplete}
+                onChange={handleChangeTime}
+              />
+            </label>
+            <label htmlFor="importance">
+              Importance (1-5)
+              <input
+                name="importance"
+                type="number"
+                min="1"
+                max="5"
+                id="importance"
+                value={theImportance}
+                onChange={handleChangeImportance}
               />
             </label>
             <label htmlFor="status">
@@ -84,7 +159,7 @@ const [status, setStatus] = useState('');
               <select
                 name="status"
                 id="status"
-                value={status}
+                value={theStatus}
                 onChange={handleChangeStatus}
               >
                 <option value="incomplete">Incomplete</option>

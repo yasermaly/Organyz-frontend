@@ -7,9 +7,9 @@ import { Redirect, Route, Switch } from "react-router-dom";
 function App() {
   const [List, setList] = useState(null);
 
-  const URL = "http://localhost:4000";
+  // const URL = "http://localhost:4000";
 
-  // const URL = "https://organyze-app.herokuapp.com"
+  const URL = "https://organyze-app.herokuapp.com"
 
 
   // creates function to call AJAX
@@ -38,6 +38,15 @@ function App() {
     });
   }
 
+  //Find one and Update item
+  const updateItem = async (updatedItem, id) => {
+    await fetch(URL + "/TaskList/" + id + "/edit", {
+      method: "PUT",
+      headers:  { "Content-Type": "Application/json" },
+      body: JSON.stringify(updatedItem),
+    })
+  }
+
   useEffect(() => {
     getList();
   }, []);
@@ -55,7 +64,7 @@ function App() {
           <Welcome  List={List}/>
         </Route>
         <Route path="/TaskList/:id">
-          <TaskList getList={getList} createItem={createItem} List={List} />
+          <TaskList getList={getList} createItem={createItem} updateItem={updateItem} List={List} />
         </Route>
       </Switch>
     </div>

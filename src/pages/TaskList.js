@@ -6,7 +6,7 @@ import style from '../styles/modules/app.module.scss';
 import { useParams } from "react-router-dom";
 
 
-function TaskList({getList, createItem, List}) {
+function TaskList({getList,updateItem, createItem, List}) {
 
 let {id} = useParams();
 
@@ -15,10 +15,10 @@ let {id} = useParams();
       <PageTitle />
       <div className={style.app__wrapper}>
         <AppHeader getList={getList} createItem={createItem} List={List} id={id} />
-        <AppContent List={List} getList={getList} id={id}/>
+        <AppContent List={List} getList={getList} id={id} updateItem={updateItem}/>
       </div>
     </div>
   );
 }
 
-export default TaskList
+export default TaskList;

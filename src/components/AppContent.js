@@ -5,7 +5,7 @@ import Button from './Button';
 import TodoItem from './TodoItem';
 
 
-function AppContent({getList, id, List, modalOpen, setModalOpen}) {
+function AppContent({getList, id, List,updateItem, modalOpen, setModalOpen}) {
 
 const Loaded = () => {
   console.log(List);
@@ -28,7 +28,7 @@ let newTasks = newUser.task;
             </tr>
           </thead>
           <tbody>
-      {newTasks.map((item, index) => {
+      {newTasks.map((item) => {
         const noDeadline  = () => {
             return "N/A";
           } ;
@@ -41,10 +41,14 @@ let newTasks = newUser.task;
       <td> {item.status}</td> 
       </Button>
       <TodoItem
+        itemID={item._id}
+        newTasks={newTasks}
         getList={getList}
         List={List}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
+        updateItem={updateItem}
+        id={id}
       />
       </tr>
       </>
